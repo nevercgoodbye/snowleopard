@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>SnowLeopard</title>
+</head>
+
+<body>
+  <div class="body">
+    <div>
+      <a href="#" id="drag">item</a>
+    </div>
+    <div>
+      <h1>Hello World!</h1>
+      We are using node <script>
+        document.write(process.versions.node)
+        </script>,
+    Chrome <script>
+      document.write(process.versions.chrome)
+      </script>,
+    and Electron <script>
+      document.write(process.versions.electron)
+      </script>.
+      </div>
+  </div>
+</body>
+<script type="text/javascript" charset="utf-8">
+  document.getElementById('drag').ondragstart = (event) => {
+    event.preventDefault()
+    ipcRenderer.send('ondragstart', '/path/to/item')
+  }
+</script>
+<style>
+body {
+  /* background-image: url("./bg.png"); */
+  /* background-color: #FFFFFF; */
+  /* background-repeat: no-repeat; */
+  /* background-position: center; */
+  background-color: rgba(0, 255, 170, 0.596);
+}
+</style>
+
+</html>
